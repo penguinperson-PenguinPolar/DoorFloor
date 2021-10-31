@@ -21,16 +21,16 @@ def CreateServer(host="127.0.0.1", port=80):
             rd = clientsocket.recv(10000).decode()
             file = rd.split("\n")
             if (len(file) > 0): print(f"{clientaddr} Requested {file[0]}")
-            data =  "HTTP/1.1 200 OK\r\n"
+            data =  b"HTTP/1.1 200 OK\r\n"
             if rd.split("/")[1] == " HTTP":
-                data += "Content-Type: text/html\r\n\r\n"
+                data += b"Content-Type: text/html\r\n\r\n"
                 data += open("index.html", "r").read()
-                data += "\r\n\r\n"
+                data += b"\r\n\r\n"
             if rd.split("/")[1] == "logo-500x500 HTTP":
-                data += "Content-Type: image/jpeg\r\n\r\n"
+                data += b"Content-Type: image/jpeg\r\n\r\n"
                 data += open("assets/logo-500x500.jpg", "rb").read()
-                data += "\r\n\r\n"
-            clientsocket.sendall(data.encode())
+                data += b"\r\n\r\n"
+            clientsocket.sendall(data)
             print(f"Sent {clientaddr} File: {file[0]}")
             clientsocket.shutdown(socket.SHUT_WR)
     except KeyboardInterrupt:

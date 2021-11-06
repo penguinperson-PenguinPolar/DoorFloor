@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Penguin Polar | Accounts</title>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-image: url(logo-500x500);
+            background-size: 800px;
+            background-position: (center - 100px);
+        }
+        #signup {
+            width: 300px;
+            box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+            background: #fff;
+            padding: 20px;
+            margin: 8% auto 0;
+            text-align: center;
+        }
+        #login {
+            width: 300px;
+            box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+            background: #fff;
+            padding: 20px;
+            margin: 8% auto 0;
+            text-align: center;
+        }
+        #login h1 {
+            color: #1c8adb;
+            margin-bottom: 30px;
+        }
+        #signup h1 {
+            color: #1c8adb;
+            margin-bottom: 30px;
+        }
+        .input-box {
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px 0 ;
+            width: 80%;
+            border: 1px solid #999;
+            outline: none;
+        }</style>
+    </head>
+    <body>
+        <form method="post" id="signup-form">
+            <div id="signup">
+                <h1>Sign Up to Penguin Polar!</h1>
+                <input type="text" placeholder="Your Username" class="input-box" id="signup-user">
+                <input type="password" placeholder="Your Password" class="input-box" id="signup-pass">
+                <p><span><input type="checkbox"></span>  I'm totally not a robot.</p>
+                <a type="button" id="signup-btn" class="button" href="">Sign Up</a>
+            </div>
+            <script>
+                const submit_button = document.getElementById("signup-btn")
+                for (let i = 0; i < 100; i++) {
+                    submit_button.setAttribute("href", "/accounts/new-account/" + document.getElementById("signup-user").value + "/" + document.getElementById("signup-pass").value)
+                }
+            </script>
+        </form>
+        <form method="post" id="login-form">
+            <div id="login">
+                <h1>Login to Penguin Polar!</h1>
+                <input type="text" placeholder="Your Username" class="input-box">
+                <input type="password" placeholder="Your Password" class="input-box">
+                <p>Forgot your password? tell us, our email is, penguinpolartech@gmail.com</p>
+                <button type="button" class="login-btn">Log In</button>
+            </div>
+        </form>
+    </body>
+</html>
